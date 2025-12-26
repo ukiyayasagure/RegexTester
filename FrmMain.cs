@@ -470,13 +470,14 @@ namespace RegexTester {
 			cboRegExp.Items.Add(cboRegExp.Text);
 			cboReplace.Items.Add(cboReplace.Text);
 
-			_MatchAndCreateTreeList(regex);
 			if (isReplace) {
 				sw.Reset();
 				backstring = txtSample.Text;
 				string from=txtSample.Text.Replace("\r\n", "\n");
+                string rep = Regex.Unescape(cboReplace.Text);
+                //rep=rep.Replace("\n","\r\n");
 				sw.Start();
-				string after = regex.Replace(from, cboReplace.Text);
+				string after = regex.Replace(from, rep);
 				sw.Stop();
 				txtSample.Text = after.Replace("\n", "\r\n");
 				msec = (double)sw.ElapsedTicks / (double)System.Diagnostics.Stopwatch.Frequency * 1000;
@@ -484,7 +485,8 @@ namespace RegexTester {
 			} else {
 				//backstring=null;
 			}
-		}
+            _MatchAndCreateTreeList(regex);
+        }
 
 		private void _MatchAndCreateTreeList(Regex regex) {
 			treeResult.Nodes.Clear();
