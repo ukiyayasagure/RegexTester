@@ -62,13 +62,6 @@
 
 ---
 
-## 参考資料
-
-- .NET Framework 正規表現リファレンス  
-  http://www.microsoft.com/japan/msdn/library/ja/cpgenref/html/cpconregularexpressionslanguageelements.asp?frame=true
-
----
-
 ## ライセンス
 
 私が書いたコードについて、CC0 1.0 Universal とします。
